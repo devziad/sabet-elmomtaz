@@ -1,0 +1,248 @@
+.footer {
+  padding: clamp(44px, 6vw, 72px) clamp(20px, 5vw, 76px) 18px;
+  border-top: 1px solid rgba(229, 169, 61, 0.14);
+  background: linear-gradient(180deg, #031007 0%, #020805 100%);
+}
+
+.shell {
+  width: min(100%, 1280px);
+  margin: 0 auto;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(150px, 0.65fr) minmax(280px, 0.9fr);
+  align-items: start;
+  gap: clamp(30px, 5vw, 76px);
+  padding-bottom: 42px;
+}
+
+.brandColumn {
+  max-width: 390px;
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  width: clamp(140px, 15vw, 185px);
+  height: auto;
+}
+
+.brandCopy {
+  margin: 12px 0 0;
+  color: rgba(239, 242, 230, 0.66);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.footerNav {
+  padding-top: 12px;
+}
+
+.columnTitle {
+  margin: 0 0 18px;
+  color: rgba(244, 219, 160, 0.82);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.footerNav ul {
+  display: grid;
+  gap: 13px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.9rem;
+  transition: color 160ms ease;
+}
+
+.navLink:hover {
+  color: #f4dba0;
+}
+
+.channelCard {
+  padding: clamp(22px, 3vw, 28px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.cardTopline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.youtubeIcon {
+  display: grid;
+  width: 30px;
+  height: 24px;
+  place-items: center;
+  border-radius: 6px;
+  background: rgba(229, 169, 61, 0.14);
+  color: #e5c77f;
+}
+
+.youtubeIcon svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.channelLabel {
+  color: rgba(244, 219, 159, 0.7);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.cardTitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cardCopy {
+  margin: 8px 0 18px;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+
+.channelButton {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  border: 1px solid rgba(229, 169, 61, 0.34);
+  border-radius: 999px;
+  color: #ead49c;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.channelButton:hover {
+  border-color: rgba(229, 169, 61, 0.68);
+  background: rgba(229, 169, 61, 0.07);
+}
+
+.channelButton:focus-visible,
+.navLink:focus-visible,
+.backToTop:focus-visible,
+.logoLink:focus-visible {
+  outline: 2px solid #e5a93d;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.bottomBar {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.72rem;
+}
+
+.credits {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.creditDivider {
+  color: rgba(229, 169, 61, 0.55);
+}
+
+.teamLabel {
+  color: rgba(244, 219, 160, 0.74);
+  font-weight: 700;
+}
+
+.backToTop {
+  color: rgba(255, 255, 255, 0.54);
+  transition: color 160ms ease;
+}
+
+.backToTop:hover {
+  color: #f4dba0;
+}
+
+@media (max-width: 900px) {
+  .mainGrid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(140px, 0.7fr);
+  }
+
+  .channelCard {
+    grid-column: 1 / -1;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px 20px 16px;
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding-bottom: 32px;
+  }
+
+  .brandColumn {
+    max-width: 100%;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .footerNav {
+    padding-top: 0;
+  }
+
+  .footerNav ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 12px;
+  }
+
+  .channelCard {
+    grid-column: auto;
+    max-width: none;
+  }
+
+  .bottomBar {
+    min-height: 0;
+    align-items: flex-start;
+    padding-top: 14px;
+    font-size: 0.67rem;
+  }
+
+  .credits {
+    gap: 5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navLink,
+  .channelButton,
+  .backToTop {
+    transition: none;
+  }
+}

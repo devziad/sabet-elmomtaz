@@ -1,0 +1,114 @@
+.announcementSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 5%;
+  background: transparent;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.contentContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.recordingDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-glow, #ff3333);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-glow, #ff3333);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.headline {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.videoWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 85vh;
+  background: var(--bg-primary);
+  border-radius: var(--radius-large, 24px);
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.soundButtonContainer {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  z-index: 20;
+}
+
+.bottomTransition {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, rgba(0, 12, 2, 0.48), transparent 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .announcementSection {
+    padding: 80px 4%;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
+  .videoWrapper {
+    border-radius: var(--radius-normal, 16px);
+  }
+
+  .soundButtonContainer {
+    bottom: 16px;
+    right: 16px;
+  }
+}

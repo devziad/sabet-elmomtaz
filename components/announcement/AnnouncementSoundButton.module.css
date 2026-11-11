@@ -1,0 +1,34 @@
+.soundButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--transition-spring);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.soundButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.soundButton.active {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.soundButton:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 4px;
+}

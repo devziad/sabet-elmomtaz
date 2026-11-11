@@ -1,0 +1,188 @@
+.sectionWrapper {
+  width: 100%;
+  margin-top: 120px; /* Space between Announcement section and this strip */
+  position: relative;
+  z-index: 10;
+}
+
+.strip {
+  width: 100%;
+  background-color: #FFC107; /* Premium Vivid Yellow */
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out;
+}
+
+.strip.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 5%;
+  min-height: 200px;
+  gap: 60px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.arabicTitle {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: #111;
+  line-height: 1.1;
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.separator {
+  width: 4px;
+  height: 50px;
+  background-color: #111;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.englishTitle {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  color: #111;
+  letter-spacing: 0.05em;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.bioText {
+  font-size: clamp(1.1rem, 1.4vw, 1.3rem);
+  color: rgba(17, 17, 17, 0.78);
+  line-height: 1.8;
+  margin: 0;
+  letter-spacing: 0.01em;
+  border-top: 1.5px solid rgba(17, 17, 17, 0.15);
+  padding-top: 14px;
+}
+
+.bioText strong {
+  color: #000;
+}
+
+.photoContainer {
+  position: relative;
+  height: 260px;
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  margin-top: -40px;
+  margin-bottom: -40px;
+}
+
+.photoWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.3);
+  border: 4px solid #FFC107; /* Integrates it into the strip */
+  transform: rotate(3deg); /* Slight editorial angle */
+  transition: transform 0.5s ease;
+}
+
+.strip:hover .photoWrapper {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.eyadImage {
+  object-fit: cover;
+  object-position: center 15%; /* Usually centers face well */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    padding: 40px 5%;
+  }
+
+  .titleRow {
+    justify-content: center;
+  }
+
+  .bioText {
+    text-align: center;
+  }
+
+  .separator {
+    width: 50px;
+    height: 4px;
+  }
+
+  .photoContainer {
+    height: 200px;
+    width: 200px;
+    margin: 0 0 -40px 0; /* Only bottom overflow on tablet */
+  }
+
+  .photoWrapper {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionWrapper {
+    margin-top: 80px;
+  }
+
+  .titleRow {
+    gap: 14px;
+  }
+
+  .arabicTitle {
+    font-size: 1.8rem;
+  }
+
+  .englishTitle {
+    font-size: 1.5rem;
+  }
+
+  .bioText {
+    font-size: 0.95rem;
+  }
+
+  .photoContainer {
+    height: 180px;
+    width: 180px;
+  }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}

@@ -1,0 +1,105 @@
+.page {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 132px 20px 72px;
+  background:
+    radial-gradient(ellipse 46% 42% at 50% 43%, rgba(24, 53, 31, 0.26), transparent 74%),
+    linear-gradient(145deg, #061008 0%, #020805 56%, #000e02 100%);
+}
+
+.card {
+  display: flex;
+  width: min(100%, 680px);
+  min-height: 430px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(32px, 8vw, 72px);
+  border: 1px solid rgba(235, 242, 231, 0.1);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012));
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.24), inset 0 1px rgba(255, 255, 255, 0.04);
+  text-align: center;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.eyebrow {
+  margin: 0;
+  color: rgba(244, 219, 159, 0.74);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.title {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.rule {
+  width: 54px;
+  height: 1px;
+  margin: 24px 0;
+  background: linear-gradient(90deg, transparent, #e5c77f, transparent);
+}
+
+.soon {
+  margin: 0;
+  color: #f0dfa9;
+  font-size: clamp(3.8rem, 13vw, 7.5rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-indent: 0.14em;
+  text-shadow: 0 0 50px rgba(229, 201, 127, 0.11);
+}
+
+.homeLink {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  padding: 0 19px;
+  border: 1px solid rgba(235, 242, 231, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+.homeLink:hover {
+  border-color: rgba(244, 219, 159, 0.4);
+  background: rgba(244, 219, 159, 0.08);
+  color: #f0dfa9;
+}
+
+.homeLink:focus-visible {
+  outline: 2px solid #f0dfa9;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .card {
+    min-height: 370px;
+    border-radius: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeLink {
+    transition: none;
+  }
+}

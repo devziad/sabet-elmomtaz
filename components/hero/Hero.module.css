@@ -1,0 +1,424 @@
+.heroSection {
+  padding: 128px 0 42px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.heroShell {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.featuredGrid {
+  position: relative;
+  min-height: clamp(500px, 78svh, 920px);
+  overflow: hidden;
+  background: transparent;
+}
+
+.featuredGrid::before {
+  position: absolute;
+  z-index: 1;
+  inset: -24px;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.4) 17%, rgba(0, 0, 0, 0.08) 39%, transparent 56%);
+  content: '';
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.featuredGrid::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(1, 6, 3, 0.78) 0%, transparent 31%),
+    linear-gradient(90deg, transparent 58%, rgba(0, 8, 3, 0.18) 100%);
+  content: '';
+  pointer-events: none;
+}
+
+.details {
+  position: absolute;
+  z-index: 3;
+  inset-block: 0;
+  right: 0;
+  left: auto;
+  display: flex;
+  width: clamp(360px, 38vw, 600px);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(36px, 5vw, 84px);
+  background: linear-gradient(270deg, #020805 0%, rgba(2, 8, 5, 0.98) 69%, rgba(2, 8, 5, 0.91) 82%, rgba(2, 8, 5, 0) 100%);
+}
+
+.showLabel {
+  max-width: 36ch;
+  margin: 12px 0 0;
+  color: rgba(244, 219, 159, 0.76);
+  font-size: clamp(0.88rem, 1.15vw, 1rem);
+  font-weight: 650;
+  line-height: 1.8;
+  text-align: right;
+}
+
+.showTitle {
+  margin: 0;
+  color: #f7f7f2;
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  text-align: right;
+}
+
+.episodeTitle {
+  display: -webkit-box;
+  max-width: 26ch;
+  margin: 24px 0 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1.2rem, 1.7vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-align: right;
+}
+
+.schedule {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.92rem;
+}
+
+.watchLink {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 0 25px;
+  border-radius: 999px;
+  background: #f7f7f2;
+  color: #071008;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.watchLink:hover {
+  transform: translateY(-1px);
+  background: #f0d995;
+}
+
+.watchLink svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.watchLink:focus-visible,
+.arrowButton:focus-visible,
+.episodeButton:focus-visible,
+.episodeRailSection:focus-visible {
+  outline: 2px solid #f0d995;
+  outline-offset: 3px;
+}
+
+.artwork {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #061008;
+}
+
+.featureImage,
+.thumbImage {
+  object-fit: cover;
+}
+
+.featureImage {
+  object-position: center center;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 22px);
+  animation: slideReveal 360ms ease both;
+}
+
+.posterFallback,
+.thumbFallback {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  background: linear-gradient(140deg, #102319, #061008);
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+.episodeRailSection {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 1600px);
+  margin: -74px auto 0;
+  padding: 0 clamp(22px, 4vw, 72px);
+}
+
+.railHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 13px;
+}
+
+.railTitle {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+
+.railHint {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.75rem;
+}
+
+.episodeRail {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 2px 2px 12px;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.episodeRail::-webkit-scrollbar {
+  display: none;
+}
+
+.episodeButton {
+  display: grid;
+  min-width: 0;
+  flex: 0 0 clamp(220px, 21vw, 320px);
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.64);
+  cursor: pointer;
+  scroll-snap-align: start;
+  text-align: right;
+}
+
+.thumbFrame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: #061008;
+  transition: border-color 180ms ease, opacity 180ms ease;
+}
+
+.episodeButton:not(.activeEpisode) .thumbFrame {
+  opacity: 0.72;
+}
+
+.activeEpisode .thumbFrame,
+.episodeButton:hover .thumbFrame {
+  border-color: #e8c873;
+  opacity: 1;
+}
+
+.thumbTitle {
+  display: -webkit-box;
+  min-height: 2.7em;
+  overflow: hidden;
+  padding: 0 2px;
+  font-size: 0.76rem;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.slideCounter {
+  color: rgba(244, 219, 159, 0.76);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.slideControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+}
+
+.arrowButton {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.arrowButton:hover:not(:disabled) {
+  border-color: rgba(232, 200, 115, 0.65);
+  background: rgba(232, 200, 115, 0.1);
+  color: #f0d995;
+}
+
+.arrowButton:disabled {
+  cursor: default;
+  opacity: 0.38;
+}
+
+.arrowButton svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.emptyState {
+  display: flex;
+  min-height: 400px;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.emptyState p {
+  margin: 0;
+}
+
+.emptyState a {
+  color: #e8c873;
+}
+
+@keyframes slideReveal {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .heroSection {
+    padding-top: 70px;
+  }
+
+  .featuredGrid {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .featuredGrid::after {
+    display: none;
+  }
+
+  .artwork {
+    position: relative;
+    inset: auto;
+    order: -1;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  .details {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    padding: 24px clamp(20px, 5vw, 40px) 26px;
+    background: linear-gradient(180deg, #061008, #020805);
+  }
+
+  .showTitle {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+  }
+
+  .episodeTitle {
+    max-width: 38ch;
+    margin-top: 12px;
+    font-size: 1.1rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .schedule {
+    margin-top: 7px;
+  }
+
+  .watchLink {
+    min-height: 46px;
+    margin-top: 16px;
+  }
+
+  .slideControls {
+    margin-top: 14px;
+  }
+
+  .episodeRailSection {
+    margin-top: 24px;
+    padding: 0 20px;
+  }
+
+  .episodeButton {
+    flex-basis: clamp(210px, 32vw, 280px);
+  }
+}
+
+@media (max-width: 480px) {
+  .artwork {
+    aspect-ratio: 16 / 10;
+  }
+
+  .details {
+    padding: 20px 18px 22px;
+  }
+
+  .railTitle {
+    font-size: 0.95rem;
+  }
+
+  .railHint {
+    font-size: 0.68rem;
+  }
+
+  .episodeRailSection {
+    padding: 0 16px;
+  }
+
+  .episodeButton {
+    flex-basis: min(68vw, 250px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featureImage,
+  .thumbFrame,
+  .watchLink,
+  .arrowButton {
+    animation: none;
+    transition: none;
+  }
+}
